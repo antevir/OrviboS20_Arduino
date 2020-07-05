@@ -144,4 +144,4 @@ You can set some callbacks to get notifications when `OrviboS20WiFiPair` finds a
 Please see the [PairAndTogglePlug example](https://github.com/antevir/OrviboS20_Arduino/blob/master/examples/PairAndTogglePlug/PairAndTogglePlug.ino) how these are used.
 
 ## Example code
-There are several examples available [here](https://github.com/antevir/OrviboS20_Arduino/tree/master/examples). When you install this arduino library you will also find the examples in `File` -> `Examples` ->`OrviboS20` 
+There are several examples available [here](https://github.com/antevir/OrviboS20_Arduino/tree/master/examples). When you install this arduino library you will also find the examples in `File` -> `Examples` ->`Orvibo WiWo S20 Library` 
