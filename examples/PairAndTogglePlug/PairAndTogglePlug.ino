@@ -1,7 +1,7 @@
 /*
- * This example illustrates how to pair a Orvibo WiWo S20 device to a soft AP
+ * This example illustrates how to pair an Orvibo WiWo S20 device to a soft AP
  *
- * The example will setup a soft AP with SSID "WIWO". It will then search for a S20
+ * The example will setup a soft AP with SSID "ORVIBO". It will then search for a S20
  * device in pairing mode. When found it will connect to this device as a WiFi station
  * and send AT commands to the S20 device to set it up for our soft AP.
  * When the setup is done, the S20 device should connect to the AP and the relay should

@@ -1,11 +1,11 @@
 /*
  * This example illustrates how to toggle the relay of a single Orvibo WiWo S20 device
  *
- * The example will setup a soft AP with SSID "WIWO" and wait for a S20 device to connect.
+ * The example will setup a soft AP with SSID "ORVIBO" and wait for a S20 device to connect.
  * When connected it will toggle the relay each 10 sec.
  *
- * Note: This example expects the S20 device to be "paired" with the SSID "WIWO" using
- *       WPA2/AES with passkey "HIHO0001". Simplest way to do this is to use the included
+ * Note: This example expects the S20 device to be "paired" with the SSID "ORVIBO" using
+ *       WPA2/AES with passkey "WIWO_S20". Simplest way to do this is to use the included
  *       "PairAndTogglePlug" example.
  */
 #include <ESP8266WiFi.h>
