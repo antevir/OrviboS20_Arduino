@@ -363,12 +363,9 @@ void OrviboS20Class::handle()
         {
             // Time for subscription
             OrviboS20Device *iter = SharedData::getInstance().getFirstDevice();
-            int cnt = 0;
             while (iter)
             {
-                cnt++;
                 iter->subscribe();
-                iter->setState(!iter->m_last_state);
                 iter = iter->m_next;
             }
             s_last_subscribe_time = millis();
