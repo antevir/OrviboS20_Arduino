@@ -1,5 +1,5 @@
 # OrviboS20_Arduino
-This is an unofficial Arduino library for Orvibo WiWo S20 smart plugs using a ESP8266. It supports:
+This is an unofficial Arduino library for Orvibo WiWo S20 smart plugs using an ESP8266. It supports:
 * Subscription (keeps track of the current relay state)
 * Setting relay state
 * WiFi "pairing" (i.e. configure a S20 plug with a new WiFi SSID and passkey)
@@ -61,9 +61,9 @@ OrviboS20Device s20_2("Plug2");
 ##### Callbacks
 There are a couple of callbacks that you can set for each devices that works as a notification when something happens. These are:
 ```
-onConnect
-onDisconnect
-onStateChange
+.onConnect() // Called when an UDP packet is received from the device
+.onDisconnect() // Called when the device is disconnected (Note: Can take up to 3 min to detect)
+.onStateChange() // Called when the relay changes state
 ```
 Please see the [examples](https://github.com/antevir/OrviboS20_Arduino/tree/master/examples) how these works.
 
@@ -110,7 +110,7 @@ Serial.println(s20.getName());
 Please see the [ToggleMultiplePlugs example](https://github.com/antevir/OrviboS20_Arduino/blob/master/examples/ToggleMultiplePlugs/ToggleMultiplePlugs.ino) when this can be useful.
 
 ### WiFi "Pairing"
-There is a `OrviboS20WiFiPair` that can be used to configure the WiFi SSID and passkey for a S20 device. In order for this to work you need to configure the ESP8266 as a WiFi station (and optionally as a STA+AP if the S20 should be able to connect after the WiFi is configured). To start the "pairing" process you call `.begin()` with the desired SSID and passkey you like the S20 to connect to. Here is a skeleton:
+There is an `OrviboS20WiFiPair` class that can be used to configure the WiFi SSID and passkey for a S20 device. In order for this to work you need to configure the ESP8266 as a WiFi station (and optionally as a STA+AP if the S20 should be able to connect after the WiFi is configured). To start the "pairing" process you call `OrviboS20WiFiPair.begin()` with the desired SSID and passkey you like the S20 to connect to. You must also call `OrviboS20WiFiPair.handle()` in `loop()`. Here is a skeleton:
 ```
 #include <ESP8266WiFi.h>
 #include "OrviboS20WiFiPair.h"
@@ -132,6 +132,9 @@ void loop()
 }
 ```
 Note: It is important that there are no long delays in `loop()` as `OrviboS20WiFiPair.handle()` handles the communication and timeouts of the pairing process.
+
+#### .isActive()
+Returns true if the pairing process is still active.
 
 #### Callbacks
 You can set some callbacks to get notifications when `OrviboS20WiFiPair` finds a S20 device, pairing succeeds etc. Here is a list of the available callbacks:
