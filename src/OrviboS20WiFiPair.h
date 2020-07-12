@@ -62,6 +62,12 @@ public:
     /* Stop the pairing process */
     void stop();
 
+    /* Returns true if the pairing process is still active */
+    bool isActive()
+    {
+        return (m_state != S_STOPPED);
+    }
+
     /* Call this from loop() */
     void handle();
 
